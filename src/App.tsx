@@ -1,20 +1,17 @@
-import { useState } from "react";
+// src/App.tsx
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CountryList } from "./components/CountryList";
 import "./App.css";
 
-interface Country {
-  name: {
-    common: string;
-    official: string;
-  };
-  flags: {
-    svg: string;
-  };
-  cca3: string; // Usaremos el código de 3 letras para la navegación
-  region: string;
-}
-
 function App() {
-  return <></>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<CountryList />} />
+        <Route path="/country/:id" element={<div>Página de Detalle (Próximamente)</div>} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

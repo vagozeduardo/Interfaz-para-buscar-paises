@@ -14,7 +14,7 @@ Este proyecto es una aplicación sencilla de practica que consume la API de [RES
 ## 🛠️ Requisitos Previos
 
 - [Node.js](https://nodejs.org/) (v18 o superior)
-- [Docker](https://www.docker.com/) (Opcional, para despliegue)
+- [Docker](https://www.docker.com/) (NECESARIO PARA EJECUTAR LA IMAGEN)
 
 ## 📦 Instalación y Uso Local
 

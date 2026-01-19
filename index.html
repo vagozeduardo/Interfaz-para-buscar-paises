@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>paises</title>
+  </head>
+  <body>
+    <div class="divPadre">
+      <div class="barraSuperior">
+        <h1>Buscador de Países</h1>
+        <div class="OpcionesBusqueda">
+          <input type="text" id="inputBuscar" placeholder="Buscar país..." />
+          <select id="selectRegion">
+            <option value="">Todas las regiones</option>
+            <option value="Africa">África</option>
+            <option value="Americas">Américas</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europa</option>
+            <option value="Oceania">Oceanía</option>
+          </select>
+        </div>
+      </div>
+      <div id="root">
+        <p>sin datos</p>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

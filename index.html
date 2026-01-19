@@ -5,20 +5,44 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>paises</title>
+    <link rel="stylesheet" href="/src/index.css" />
   </head>
   <body>
     <div class="divPadre">
       <div class="barraSuperior">
         <h1>Buscador de Países</h1>
+
         <div class="OpcionesBusqueda">
           <input type="text" id="inputBuscar" placeholder="Buscar país..." />
-          <select id="selectRegion">
-            <option value="">Todas las regiones</option>
-            <option value="Africa">África</option>
-            <option value="Americas">Américas</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europa</option>
-            <option value="Oceania">Oceanía</option>
+          <button id="BtnBuscar">🔍 Buscar</button>
+          <select>
+            <button>Elegiste: <selectedcontent></selectedcontent></button>
+            <div class="container">
+              <div>
+                <option>
+                  <svg><use href="src/assets/world.svg" /></svg> Todas las regiones
+                </option>
+                <option>
+                  <svg><use href="src/assets/africa.svg" /></svg> África
+                </option>
+              </div>
+              <div>
+                <option>
+                  <svg><use href="src/assets/america.svg" /></svg> Américas
+                </option>
+                <option>
+                  <svg><use href="src/assets/asia.svg" /></svg> Asia
+                </option>
+              </div>
+              <div>
+                <option>
+                  <svg><use href="src/assets/europa.svg" /></svg> Europa
+                </option>
+                <option>
+                  <svg><use href="src/assets/oceania.svg" /></svg> Oceanía
+                </option>
+              </div>
+            </div>
           </select>
         </div>
       </div>

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  buscador-app:
+    
+    build: .
+    container_name: contenedor-paises-final
+    ports:
+      # Formato: "PUERTO_MAQUINA:PUERTO_DOCKER"
+      # Si el 9000 está ocupado, solo cambia el de la izquierda (ej: "9500:80")
+      - "9000:80"
+    restart: always
+    image: buscador-paises:latest

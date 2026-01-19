@@ -1,50 +1,74 @@
-/* Limpieza de estilos de Vite que estorban */
+/* ==========================================================================
+   1. VARIABLES GLOBALES (Configuración rápida)
+   ========================================================================== */
+:root {
+  --primary-bg: #00f2ff;
+  --card-bg: #ffffff;
+  --text-main: #1a1a1a;
+  --text-muted: #666666;
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.2s;
+  --card-width: 220px;
+}
+
+/* ==========================================================================
+   2. REINICIO Y CONTENEDORES BASE
+   ========================================================================== */
 #root {
   width: 100%;
+  max-width: none;
   margin: 0;
   padding: 0;
-  text-align: left; /* Cambiamos el center por left */
-  max-width: none;
+  text-align: left;
 }
 
 .main-content-wrapper {
-  background-color: #00f2ff; /* El color cyan de tu imagen */
+  background-color: var(--primary-bg);
   min-height: 100vh;
-  padding: 50px 20px 100px 20px; /* Espacio abajo para que la paginación no tape nada */
+  padding: 50px 20px 120px 20px; /* Padding extra abajo para la paginación */
 }
 
-/* EL MOSAICO: Aquí está el truco */
+/* ==========================================================================
+   3. GRID / MOSAICO
+   ========================================================================== */
 .countries-mosaic {
   display: grid;
-  /* Crea columnas automáticas de mínimo 220px */
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 50px 20px; /* Mucho espacio vertical para el efecto de la imagen */
+  grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
+  gap: 50px 20px;
   justify-items: center;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Estilos de la Tarjeta (Mosaic Item) */
+/* ==========================================================================
+   4. TARJETAS (COUNTRY CARD)
+   ========================================================================== */
 .mosaic-item {
-  width: 220px;
+  width: var(--card-width);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-speed) ease;
 }
 
 .mosaic-item:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
 }
 
-/* La Bandera */
+.mosaic-item:hover .info-card {
+  background-color: #f8f9fa;
+  box-shadow: 0 12px 30px var(--shadow-light);
+}
+
+/* Bandera */
 .flag-wrapper {
-  width: 160px; /* Tamaño pequeño como pediste */
+  width: 160px;
   height: 100px;
   z-index: 2;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px var(--shadow-dark);
 }
 
 .flag-wrapper img {
@@ -52,34 +76,38 @@
   height: 100%;
   object-fit: cover;
   border-radius: 4px;
+  animation: fadeIn 0.5s ease-in;
 }
 
-/* El cuadro blanco de información */
+/* Cuadro de información (blanco) */
 .info-card {
-  background: white;
-  width: 100%; /* Ocupa los 220px del mosaic-item */
-  padding: 35px 10px 15px 10px; /* Padding top alto para compensar que la bandera lo tapa */
+  background: var(--card-bg);
+  width: 100%;
+  padding: 35px 10px 15px 10px;
   border-radius: 12px;
-  margin-top: -30px; /* Sube para quedar debajo de la bandera */
+  margin-top: -30px; /* Efecto de superposición */
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px var(--shadow-light);
   z-index: 1;
+  transition: all var(--transition-speed) ease;
 }
 
 .info-card h6 {
   margin: 0;
   font-weight: bold;
   font-size: 1rem;
-  color: #1a1a1a;
+  color: var(--text-main);
 }
 
 .info-card p {
   margin: 0;
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-muted);
 }
 
-/* Paginación fija abajo */
+/* ==========================================================================
+   5. COMPONENTES GLOBALES (Paginación)
+   ========================================================================== */
 .custom-pagination {
   position: fixed;
   bottom: 0;
@@ -91,6 +119,32 @@
   justify-content: center;
   align-items: center;
   gap: 15px;
-  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.08);
   z-index: 100;
+}
+
+/* ==========================================================================
+   6. ANIMACIONES (Skeletons y Transiciones)
+   ========================================================================== */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.skeleton-pulse {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

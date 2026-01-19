@@ -20,15 +20,19 @@ Este proyecto es una aplicación sencilla de practica que consume la API de [RES
 
 1. Clonar el repositorio desde DockerHub :
    ```bash
-   docker pull eduardovazquezgo/buscador-paises:v1
+      docker pull eduardovazquezgo/buscador-paises:v1
 2. Verificar que la imagen se descargó
    ```bash
       docker images
 - deberia aparecer la imagen con el nombre que tiene la imagen `eduardovazquezgo/buscador-paises:v1` 
 3. Ejecuatarlo:
-  ```bash
-   docker run -d -p 9096:80 --name contenedor-paises buscador-paises
+   ```bash
+      docker run -d -p 9096:80 --name contenedor-paises buscador-paises
+ 
 > [!IMPORTANT]
 > SI el puerto esta siendo usado puede realizar lo siguiente:
 > en el `-p` se define el puerto, por ejemplo si el puerto 8080 esta ocupado puede cambiarlo
 > a por ejemplo: `9090` o `9096`
+>
+
+

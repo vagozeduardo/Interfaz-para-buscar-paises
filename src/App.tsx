@@ -1,6 +1,7 @@
 // src/App.tsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CountryList } from "./components/CountryList";
+import { CountryDetail } from "./components/CountryDetail";
 import "./App.css";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<CountryList />} />
-        <Route path="/country/:id" element={<div>Página de Detalle (Próximamente)</div>} />
+        <Route path="/country/:id" element={<CountryDetail />} />
       </Routes>
     </BrowserRouter>
   );
